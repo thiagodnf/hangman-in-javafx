@@ -1,8 +1,6 @@
 package tdnf.hangmanfx;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,139 +9,148 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class MainController {
 
-	@FXML
-	private ResourceBundle resources;
+    @FXML
+    private ResourceBundle resources;
 
-	@FXML
-	private URL location;
+    @FXML
+    private URL location;
 
-	@FXML
-	private VBox keyboardVBox;
+    @FXML
+    private VBox keyboardVBox;
 
-	@FXML
-	private Label currentWordLabel;
+    @FXML
+    private Label currentWordLabel;
 
-	private List<String> targetWord;
+    @FXML
+    private ImageView hangmanImageView;
 
-	private List<String> currentWord;
+    private Game game;
 
-	private int maxAttemps;
+    private String hint;
 
-	@FXML
-	void handleKeyboard(ActionEvent event) {
+    @FXML
+    void handleKeyboard(ActionEvent event) {
 
-		pressKeyboardButton((Button) event.getTarget());
-	}
+        pressKeyboardButton((Button) event.getTarget());
+    }
 
-	@FXML
-	void initialize() {
+    @FXML
+    void handleNextWordButton(ActionEvent event) {
+        nextWord();
+    }
 
-		restartGame();
-	}
+    @FXML
+    void handleHintButton(ActionEvent event) {
 
-	public void pressKeyboardButton(Button pressedButton) {
+        showMessage(AlertType.INFORMATION, "Hint", hint);
+    }
 
-		if (pressedButton.isDisabled()) {
-			return;
-		}
+    @FXML
+    void initialize() {
 
-		pressedButton.setDisable(true);
+        nextWord();
+    }
 
-		String letter = pressedButton.getText();
+    public void pressKeyboardButton(Button pressedButton) {
 
-		if (isValidLetter(letter)) {
+        if (pressedButton.isDisabled()) {
+            return;
+        }
 
-			for (int i = 0; i < targetWord.size(); i++) {
+        pressedButton.setDisable(true);
 
-				if (targetWord.get(i).equalsIgnoreCase(letter)) {
-					currentWord.set(i, letter);
-				}
-			}
+        String letter = pressedButton.getText();
 
-			printCurrentWord();
+        boolean isValidLetter = game.guess(letter);
 
-			if (isEndGame()) {
+        currentWordLabel.setText(game.toFormattedString());
 
-				showSuccess("You win!");
-				restartGame();
-			}
+        if (isValidLetter) {
 
-		} else {
+            pressedButton.getStyleClass().add("correct");
 
-			maxAttemps--;
+            if (game.isWin()) {
 
-			if (maxAttemps == 0) {
+                currentWordLabel.getStyleClass().add("correct");
 
-				showError("You loose!");
-				restartGame();
-			}
-		}
-	}
+                disableKeyboard();
+            }
 
-	public void printCurrentWord() {
+        } else {
 
-		StringBuilder builder = new StringBuilder();
+            pressedButton.getStyleClass().add("wrong");
 
-		for (String letter : currentWord) {
+            if (game.isLost()) {
 
-			if (letter.isBlank()) {
-				builder.append("_").append(" ");
-			} else {
-				builder.append(letter).append(" ");
-			}
-		}
+                currentWordLabel.getStyleClass().add("wrong");
 
-		currentWordLabel.setText(builder.toString());
-	}
+                disableKeyboard();
+            }
+        }
 
-	public boolean isValidLetter(String letter) {
+        updateHangmanImageView();
+    }
 
-		return targetWord.contains(letter);
-	}
+    private void nextWord() {
 
-	public boolean isEndGame() {
+        this.game = new Game("apple");
+        this.hint = "This is a hint";
 
-		return targetWord.toString().contentEquals(currentWord.toString());
-	}
+        enableKeyboard();
+        restartKeyboardColors();
+        updateHangmanImageView();
 
-	private void restartGame() {
+        currentWordLabel.setText(game.toFormattedString());
 
-		this.targetWord = Arrays.asList("Q", "W", "E", "Q");
-		this.currentWord = Arrays.asList("", "", "", "");
+        currentWordLabel.getStyleClass().remove("wrong");
+        currentWordLabel.getStyleClass().remove("correct");
+    }
+    
+    private void updateHangmanImageView() {
+        
+        String imagePath = "/images/hangman-" + game.getMaxAttemps() + ".png";
 
-		this.maxAttemps = 3;
+        hangmanImageView.setImage(new Image(getClass().getResourceAsStream(imagePath)));
+    }
 
-		activateAllKeyboardButtons();
-		printCurrentWord();
-	}
+    private void enableKeyboard() {
 
-	private void activateAllKeyboardButtons() {
+        setDisableForAllKeyboardButtons(false);
+    }
 
-		keyboardVBox.lookupAll(".button").forEach(e -> {
-			((Button) e).setDisable(false);
-		});
-	}
+    private void disableKeyboard() {
 
-	private void showError(String text) {
-		showMessage(AlertType.ERROR, "Ooops...", text);
-	}
+        setDisableForAllKeyboardButtons(true);
+    }
 
-	private void showSuccess(String text) {
-		showMessage(AlertType.INFORMATION, "Congratulations!", text);
-	}
+    private void setDisableForAllKeyboardButtons(boolean state) {
 
-	private void showMessage(AlertType type, String title, String text) {
+        keyboardVBox.lookupAll(".button").forEach(e -> {
+            ((Button) e).setDisable(state);
+        });
+    }
 
-		Alert alert = new Alert(type);
+    private void restartKeyboardColors() {
 
-		alert.setTitle(title);
-		alert.setHeaderText(text);
+        keyboardVBox.lookupAll(".button").forEach(e -> {
+            ((Button) e).getStyleClass().remove("wrong");
+            ((Button) e).getStyleClass().remove("correct");
+        });
+    }
 
-		alert.showAndWait();
-	}
+    private void showMessage(AlertType type, String title, String text) {
 
+        Alert alert = new Alert(type);
+
+        alert.setTitle(title);
+        alert.setHeaderText(text);
+
+        alert.showAndWait();
+    }
 }
