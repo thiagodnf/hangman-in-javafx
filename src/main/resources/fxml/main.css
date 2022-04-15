@@ -1,8 +1,10 @@
 .root{
     -fx-background-color: #74CED4;
+    -fx-font-family: "Arial";
+    -fx-text-fill: red;
 }
 
-.label{
+#currentWordLabel{
     -fx-background-color: rgba(0,0,0,0.5);
     -fx-border-radius: 5px; 
     -fx-background-radius: 5px; 
@@ -18,4 +20,8 @@
 .correct{
     -fx-background-color: #25AE3B;
     -fx-text-fill: white;
+}
+
+.menu .custom-menu-item .check-box{
+    -fx-text-fill: black;
 }

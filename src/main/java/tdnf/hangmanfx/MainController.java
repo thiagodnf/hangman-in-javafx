@@ -1,5 +1,6 @@
 package tdnf.hangmanfx;
 
+import java.awt.CheckboxMenuItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -29,7 +31,7 @@ public class MainController {
 
     @FXML
     private ImageView hangmanImageView;
-
+    
     private Game game;
 
     private String hint;
@@ -105,15 +107,18 @@ public class MainController {
         enableKeyboard();
         restartKeyboardColors();
         updateHangmanImageView();
+        restartCurrentWordLabel();
+    }
+
+    private void restartCurrentWordLabel() {
 
         currentWordLabel.setText(game.toFormattedString());
-
         currentWordLabel.getStyleClass().remove("wrong");
         currentWordLabel.getStyleClass().remove("correct");
     }
-    
+
     private void updateHangmanImageView() {
-        
+
         String imagePath = "/images/hangman-" + game.getMaxAttemps() + ".png";
 
         hangmanImageView.setImage(new Image(getClass().getResourceAsStream(imagePath)));
