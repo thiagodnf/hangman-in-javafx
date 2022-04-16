@@ -1,31 +1,51 @@
 package tdnf.hangmanfx.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import lombok.Getter;
+import lombok.Setter;
 import tdnf.hangmanfx.util.FileUtils;
 
 @Getter
+@Setter
 public class Settings {
 
-    private List<Dictionary> dictionaries;
+	private List<Dictionary> dictionaries;
 
-    private int selectedDictionary;
+	private Dictionary selectedDictionary;
 
-    public Settings() {
+	private Set<String> categories;
 
-        this.dictionaries = Arrays.asList(
-            FileUtils.loadDictionary("en-us.json"),
-            FileUtils.loadDictionary("pt-br.json")
-        );
+	public Settings() {
 
-        this.selectedDictionary = 0;
-    }
+		this.dictionaries = Arrays.asList(
+			FileUtils.loadDictionary("en-us.json")
+		);
 
-    public String getTargetWord() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+		this.categories = new HashSet<>(Set.of("fruits", "carMakers"));
 
+		this.selectedDictionary = this.dictionaries.get(0);
+	}
+
+	public Word getTargetWord() {
+
+		List<Word> possibleWords = new ArrayList<>();
+
+		for (Category category : selectedDictionary.getCategories()) {
+
+			if (categories.contains(category.getName())) {
+
+				possibleWords.addAll(category.getWords());
+			}
+		}
+		
+		Collections.shuffle(possibleWords);
+	
+        return possibleWords.get(0);
+	}
 }

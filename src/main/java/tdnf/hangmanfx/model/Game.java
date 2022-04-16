@@ -11,28 +11,22 @@ public class Game {
     private String[] targetWord;
 
     private String[] currentWord;
+    
+    private String hint;
 
     private int maxAttemps;
 
-    public Game(String targetWord) {
-
-        if (targetWord.isBlank()) {
-            throw new IllegalArgumentException("The target word must not be blank");
-        }
-
-        if (targetWord.length() > 15) {
-            throw new IllegalArgumentException("The target word must have <= 15 charactes");
-        }
-        
+    public Game() {
         this.settings = new Settings();
-        
-        nextWord();
     }
     
     public void nextWord() {
+    	
+    	Word word = settings.getTargetWord();
         
-        this.targetWord ="opa".split("");
+        this.targetWord = word.getName().toUpperCase().split("");
         this.currentWord = ArrayUtils.replace(this.targetWord, "_");
+        this.hint = word.getHint();
         this.maxAttemps = 6;
     }
 

@@ -1,13 +1,22 @@
 {
     "language": "English (US)",
-    "categories": {
-        "carMakers": [
-            "toyota",
-            "ford"
-        ],
-        "fruits": [
-            "apple",
-            "banana"
-        ]
-    }
+    "categories": [{
+    	"name": "carMakers",
+    	"words":[{
+    		"name": "toyota",
+    		"hint": "Japanese manufacter"
+    	},{
+    		"name": "ford",
+    		"hint": "American manufacter"
+    	}]
+    },{
+    	"name": "fruits",
+    	"words":[{
+    		"name": "apple",
+    		"hint": ""
+    	},{
+    		"name": "banana",
+    		"hint": ""
+    	}]
+    }]
 }

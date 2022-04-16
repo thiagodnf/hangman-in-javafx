@@ -80,7 +80,7 @@
                   <Insets left="7.0" right="7.0" />
                </padding>
             </HBox>
-            <Label fx:id="currentWordLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="363.0" text="WORD" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="currentWordLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="363.0" styleClass="correct" text="WORD" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

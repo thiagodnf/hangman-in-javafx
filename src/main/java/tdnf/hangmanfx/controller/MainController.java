@@ -5,25 +5,18 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import tdnf.hangmanfx.model.Game;
 
@@ -46,8 +39,6 @@ public class MainController {
 
     private Game game;
 
-    private String hint;
-
     @FXML
     void handleKeyboard(ActionEvent event) {
 
@@ -63,7 +54,7 @@ public class MainController {
     @FXML
     void handleHintButton(ActionEvent event) {
 
-        showMessage(AlertType.INFORMATION, "Hint", hint);
+        showMessage(AlertType.INFORMATION, "Hint", game.getHint());
     }
     
     @FXML
@@ -75,6 +66,8 @@ public class MainController {
     @FXML
     void initialize() {
 
+    	this.game = new Game();
+    	
         nextWord();
     }
 
@@ -87,13 +80,14 @@ public class MainController {
         try {
             root = (Parent) loader.load();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
         SettingsController c = loader.getController();
         
         c.setSettings(game.getSettings());
+        
+        c.load();
 
         Dialog<ButtonType> dialog = new Dialog<>();
 
@@ -105,11 +99,7 @@ public class MainController {
 
         if (result.isPresent()) {
             
-            System.out.println(c.getDictionaryComboBox().getSelectionModel().getSelectedItem());
-
-            System.out.println(result.get());
-
-            System.out.println(c.fruitsCheckBox.isSelected());
+        	c.save();
         }
     }
 
@@ -155,8 +145,7 @@ public class MainController {
 
     private void nextWord() {
 
-        this.game = new Game("apple");
-        this.hint = "This is a hint";
+    	this.game.nextWord();
 
         enableKeyboard();
         restartKeyboardColors();
