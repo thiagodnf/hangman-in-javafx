@@ -1,8 +1,12 @@
-package tdnf.hangmanfx;
+package tdnf.hangmanfx.model;
 
+import lombok.Getter;
 import tdnf.hangmanfx.util.ArrayUtils;
 
+@Getter
 public class Game {
+    
+    private Settings settings;
 
     private String[] targetWord;
 
@@ -19,10 +23,16 @@ public class Game {
         if (targetWord.length() > 15) {
             throw new IllegalArgumentException("The target word must have <= 15 charactes");
         }
-
-        this.targetWord = targetWord.toUpperCase().split("");
+        
+        this.settings = new Settings();
+        
+        nextWord();
+    }
+    
+    public void nextWord() {
+        
+        this.targetWord ="opa".split("");
         this.currentWord = ArrayUtils.replace(this.targetWord, "_");
-
         this.maxAttemps = 6;
     }
 

@@ -1,0 +1,13 @@
+{
+    "language": "Portuguese (Brazil)",
+    "categories": {
+        "carMakers": [
+            "toyota",
+            "ford"
+        ],
+        "fruits": [
+            "maca",
+            "banana"
+        ]
+    }
+}

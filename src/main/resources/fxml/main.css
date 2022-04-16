@@ -21,7 +21,3 @@
     -fx-background-color: #25AE3B;
     -fx-text-fill: white;
 }
-
-.menu .custom-menu-item .check-box{
-    -fx-text-fill: black;
-}

@@ -1,5 +1,8 @@
 package tdnf.hangmanfx.util;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class ArrayUtils {
 
     public static String[] replace(String[] array, String letter) {
@@ -50,5 +53,4 @@ public class ArrayUtils {
 
         return true;
     }
-
 }

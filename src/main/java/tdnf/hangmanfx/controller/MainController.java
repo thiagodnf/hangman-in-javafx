@@ -1,19 +1,31 @@
-package tdnf.hangmanfx;
+package tdnf.hangmanfx.controller;
 
-import java.awt.CheckboxMenuItem;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import tdnf.hangmanfx.model.Game;
 
 public class MainController {
 
@@ -31,7 +43,7 @@ public class MainController {
 
     @FXML
     private ImageView hangmanImageView;
-    
+
     private Game game;
 
     private String hint;
@@ -44,6 +56,7 @@ public class MainController {
 
     @FXML
     void handleNextWordButton(ActionEvent event) {
+        
         nextWord();
     }
 
@@ -52,11 +65,52 @@ public class MainController {
 
         showMessage(AlertType.INFORMATION, "Hint", hint);
     }
+    
+    @FXML
+    void handleSettingsButton(ActionEvent event) {
+        
+        show();
+    }
 
     @FXML
     void initialize() {
 
         nextWord();
+    }
+
+    public void show() {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
+
+        Parent root = null;
+
+        try {
+            root = (Parent) loader.load();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        SettingsController c = loader.getController();
+        
+        c.setSettings(game.getSettings());
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        dialog.setTitle("Settings");
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        dialog.getDialogPane().setContent(root);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        if (result.isPresent()) {
+            
+            System.out.println(c.getDictionaryComboBox().getSelectionModel().getSelectedItem());
+
+            System.out.println(result.get());
+
+            System.out.println(c.fruitsCheckBox.isSelected());
+        }
     }
 
     public void pressKeyboardButton(Button pressedButton) {

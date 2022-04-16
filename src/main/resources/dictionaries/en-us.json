@@ -1,0 +1,13 @@
+{
+    "language": "English (US)",
+    "categories": {
+        "carMakers": [
+            "toyota",
+            "ford"
+        ],
+        "fruits": [
+            "apple",
+            "banana"
+        ]
+    }
+}
