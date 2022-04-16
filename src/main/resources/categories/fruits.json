@@ -1,0 +1,14 @@
+{
+    "id": 0,
+    "name": "Fruits",
+    "en-us": [
+        "banana",
+        "apple",
+        "mango"
+    ],
+    "pt-br": [
+        "banana",
+        "maca",
+        "manga"
+    ]
+}

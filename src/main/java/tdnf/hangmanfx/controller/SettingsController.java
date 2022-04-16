@@ -41,5 +41,7 @@ public class SettingsController {
 
         dictionaryComboBox.getSelectionModel().select(settings.getSelectedDictionary());
 
+        
+//        carManufacturerCheckBox.setSelected(settings.);l
     }
 }
