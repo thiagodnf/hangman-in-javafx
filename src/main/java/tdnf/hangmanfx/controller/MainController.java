@@ -18,11 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import tdnf.hangmanfx.model.Game;
-import tdnf.hangmanfx.util.ResourceUtils;
-import tdnf.hangmanfx.util.ResourceUtils.ResourceName;
+import tdnf.hangmanfx.util.MusicUtils;
 
 public class MainController {
 
@@ -70,7 +67,7 @@ public class MainController {
 	@FXML
 	void initialize() {
 
-		playBackgroundMusic();
+	    MusicUtils.playBackgroundMusic();
 
 		this.game = new Game();
 
@@ -89,11 +86,9 @@ public class MainController {
 			e.printStackTrace();
 		}
 
-		SettingsController c = loader.getController();
+		SettingsController controller = loader.getController();
 
-		c.setSettings(game.getSettings());
-
-		c.load();
+		controller.load(game.getSettings());
 
 		Dialog<ButtonType> dialog = new Dialog<>();
 
@@ -103,9 +98,9 @@ public class MainController {
 
 		Optional<ButtonType> result = dialog.showAndWait();
 
-		if (result.isPresent()) {
+		if (result.isPresent() && result.get() == ButtonType.OK) {
 
-			c.save();
+		    controller.save();
 		}
 	}
 
@@ -125,13 +120,13 @@ public class MainController {
 
 		if (isValidLetter) {
 
-			playSuccess();
+		    MusicUtils.playSuccess();
 			
 			pressedButton.getStyleClass().add("correct");
 
 			if (game.isWin()) {
 
-				playWin();
+			    MusicUtils.playWin();
 				
 				currentWordLabel.getStyleClass().add("correct");
 
@@ -140,13 +135,13 @@ public class MainController {
 
 		} else {
 			
-			playFailure();
+			MusicUtils.playFailure();
 
 			pressedButton.getStyleClass().add("wrong");
 
 			if (game.isLost()) {
 
-				playLoose();
+			    MusicUtils.playGameOver();
 				
 				currentWordLabel.getStyleClass().add("wrong");
 
@@ -214,57 +209,5 @@ public class MainController {
 		alert.setHeaderText(text);
 
 		alert.showAndWait();
-	}
-	
-	private void playWin() {
-		
-		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_WIN);
-
-		playMusic(media,  1.0, 1);
-	}
-
-	
-	private void playLoose() {
-		
-		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_LOOSE);
-
-		playMusic(media,  1.0, 1);
-	}
-
-	private void playSuccess() {
-		
-		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_SUCCESS);
-
-		playMusic(media,  1.0, 1);
-	}
-	
-	private void playFailure() {
-		
-		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_FAILURE);
-
-		playMusic(media,  1.0, 1);
-	}
-	
-	private void playBackgroundMusic() {
-
-		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_BACKGROUND);
-
-		playMusic(media, 0.1, MediaPlayer.INDEFINITE);
-	}
-
-	private void playMusic(Media media, double volume, int cycleCount) {
-
-		// Instantiating MediaPlayer class
-		MediaPlayer mediaPlayer = new MediaPlayer(media);
-		
-		// Sets the audio playback volume. Its effect will be clamped to 
-		// the range [0.0, 1.0].
-		mediaPlayer.setVolume(volume);
-
-		// by setting this property to true, the audio will be played
-		mediaPlayer.setAutoPlay(true);
-
-		// Play the music in loop
-		mediaPlayer.setCycleCount(cycleCount);
 	}
 }

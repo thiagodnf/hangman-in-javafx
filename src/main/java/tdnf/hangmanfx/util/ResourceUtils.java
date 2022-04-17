@@ -14,19 +14,19 @@ public class ResourceUtils {
 		MUSIC_BACKGROUND,
 		MUSIC_FAILURE,
 		MUSIC_SUCCESS,
-		MUSIC_LOOSE,
+		MUSIC_GAME_OVER,
 		MUSIC_WIN
 	}
 
-	private static Map<ResourceName, Object> resources = new HashMap<>();
+    private static Map<ResourceName, Object> resources = new HashMap<>();
 
-	static {
-		resources.put(ResourceName.MUSIC_BACKGROUND, loadMusics("/musics/background.wav"));
-		resources.put(ResourceName.MUSIC_FAILURE, loadMusics("/musics/failure.mp3"));
-		resources.put(ResourceName.MUSIC_SUCCESS, loadMusics("/musics/success.mp3"));
-		resources.put(ResourceName.MUSIC_LOOSE, loadMusics("/musics/loose.mp3"));
-		resources.put(ResourceName.MUSIC_WIN, loadMusics("/musics/win.mp3"));
-	}
+    static {
+        resources.put(ResourceName.MUSIC_BACKGROUND, loadMusics("/musics/background.wav"));
+        resources.put(ResourceName.MUSIC_FAILURE, loadMusics("/musics/failure.mp3"));
+        resources.put(ResourceName.MUSIC_SUCCESS, loadMusics("/musics/success.mp3"));
+        resources.put(ResourceName.MUSIC_GAME_OVER, loadMusics("/musics/game-over.wav"));
+        resources.put(ResourceName.MUSIC_WIN, loadMusics("/musics/win.mp3"));
+    }
 
 	public static URI getResourceToURI(String name) {
 
@@ -43,6 +43,7 @@ public class ResourceUtils {
 	}
 
 	public static Object getResource(ResourceName resourceName) {
-		return resources.get(resourceName);
+		
+	    return resources.get(resourceName);
 	}
 }

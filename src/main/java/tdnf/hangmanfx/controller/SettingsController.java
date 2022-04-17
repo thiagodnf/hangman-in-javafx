@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import lombok.Getter;
-import lombok.Setter;
 import tdnf.hangmanfx.model.Dictionary;
 import tdnf.hangmanfx.model.Settings;
 
@@ -33,7 +32,6 @@ public class SettingsController {
     
     private List<CheckBox> categoriesCheckBoxes;
     
-    @Setter
     private Settings settings;
 
     @FXML
@@ -45,7 +43,9 @@ public class SettingsController {
 		);
     }
 
-    public void load() {
+    public void load(Settings settings) {
+        
+        this.settings = settings;
 
         for (Dictionary dictionary : settings.getDictionaries()) {
             dictionaryComboBox.getItems().add(dictionary);
