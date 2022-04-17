@@ -11,6 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdnf.hangmanfx.controller.MainController">
    <children>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="400.0" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Win:" />
+            <Label fx:id="winCounterLabel" text="0" />
+            <Label text="Lose:" />
+            <Label fx:id="loseCounterLabel" text="0" />
+         </children>
+      </HBox>
       <VBox alignment="CENTER" spacing="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <ImageView fx:id="hangmanImageView" fitHeight="350.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">

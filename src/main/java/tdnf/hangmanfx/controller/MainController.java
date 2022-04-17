@@ -34,6 +34,12 @@ public class MainController {
 
 	@FXML
 	private Label currentWordLabel;
+	
+	@FXML
+	private Label winCounterLabel;
+	
+	@FXML
+    private Label loseCounterLabel;
 
 	@FXML
 	private ImageView hangmanImageView;
@@ -61,7 +67,7 @@ public class MainController {
 	@FXML
 	void handleSettingsButton(ActionEvent event) {
 
-		show();
+	    showSettingsDialog();
 	}
 
 	@FXML
@@ -72,36 +78,6 @@ public class MainController {
 		this.game = new Game();
 
 		nextWord();
-	}
-
-	public void show() {
-
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
-
-		Parent root = null;
-
-		try {
-			root = (Parent) loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		SettingsController controller = loader.getController();
-
-		controller.load(game.getSettings());
-
-		Dialog<ButtonType> dialog = new Dialog<>();
-
-		dialog.setTitle("Settings");
-		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-		dialog.getDialogPane().setContent(root);
-
-		Optional<ButtonType> result = dialog.showAndWait();
-
-		if (result.isPresent() && result.get() == ButtonType.OK) {
-
-		    controller.save();
-		}
 	}
 
 	public void pressKeyboardButton(Button pressedButton) {
@@ -127,6 +103,8 @@ public class MainController {
 			if (game.isWin()) {
 
 			    MusicUtils.playWin();
+			    
+			    game.addWin();
 				
 				currentWordLabel.getStyleClass().add("correct");
 
@@ -142,6 +120,8 @@ public class MainController {
 			if (game.isLost()) {
 
 			    MusicUtils.playGameOver();
+			    
+			    game.addLose();
 				
 				currentWordLabel.getStyleClass().add("wrong");
 
@@ -150,6 +130,7 @@ public class MainController {
 		}
 
 		updateHangmanImageView();
+		updateTopBar();
 	}
 
 	private void nextWord() {
@@ -160,6 +141,12 @@ public class MainController {
 		restartKeyboardColors();
 		updateHangmanImageView();
 		restartCurrentWordLabel();
+	}
+	
+	private void updateTopBar() {
+	    
+	    this.winCounterLabel.setText(String.valueOf(game.getWinCounter()));
+	    this.loseCounterLabel.setText(String.valueOf(game.getLoseCounter()));
 	}
 
 	private void restartCurrentWordLabel() {
@@ -210,4 +197,34 @@ public class MainController {
 
 		alert.showAndWait();
 	}
+	
+	private void showSettingsDialog() {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
+
+        Parent root = null;
+
+        try {
+            root = (Parent) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        SettingsController controller = loader.getController();
+
+        controller.load(game.getSettings());
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        dialog.setTitle("Settings");
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        dialog.getDialogPane().setContent(root);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+
+            controller.save();
+        }
+    }
 }

@@ -15,9 +15,15 @@ public class Game {
     private String hint;
 
     private int maxAttemps;
+    
+    private int winCounter;
+    
+    private int loseCounter;
 
     public Game() {
         this.settings = new Settings();
+        this.winCounter = 0;
+        this.loseCounter = 0;
     }
     
     public void nextWord() {
@@ -69,5 +75,15 @@ public class Game {
 
     public int getMaxAttemps() {
         return this.maxAttemps;
+    }
+    
+    public void addWin() {
+        
+        this.winCounter++;
+    }
+    
+    public void addLose() {
+        
+        this.loseCounter++;
     }
 }
