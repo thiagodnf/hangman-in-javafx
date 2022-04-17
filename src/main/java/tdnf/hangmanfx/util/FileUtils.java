@@ -1,12 +1,9 @@
 package tdnf.hangmanfx.util;
 
-import java.io.IOException;
 import java.net.URL;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import lombok.experimental.UtilityClass;
 import tdnf.hangmanfx.model.Dictionary;
 
