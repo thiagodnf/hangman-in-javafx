@@ -8,5 +8,4 @@ public class Word {
 	private String name;
 
 	private String hint;
-
 }

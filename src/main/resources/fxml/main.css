@@ -1,6 +1,7 @@
 .root{
     -fx-background-color: #74CED4;
     -fx-font-family: "Arial";
+    -fx-font-size: 12px;
 }
 
 #currentWordLabel{
@@ -12,11 +13,11 @@
 }
 
 .wrong{
-    -fx-background-color: #ED484A;
-    -fx-text-fill: white;
+    -fx-background-color: #ED484A !important;
+    -fx-text-fill: white !important;
 }
 
 .correct{
-    -fx-background-color: #25AE3B;
-    -fx-text-fill: white;
+    -fx-background-color: #25AE3B !important;
+    -fx-text-fill: white !important;
 }

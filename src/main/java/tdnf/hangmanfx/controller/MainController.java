@@ -1,7 +1,10 @@
 package tdnf.hangmanfx.controller;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -18,187 +21,253 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import tdnf.hangmanfx.model.Game;
+import tdnf.hangmanfx.util.ResourceUtils;
+import tdnf.hangmanfx.util.ResourceUtils.ResourceName;
 
 public class MainController {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private VBox keyboardVBox;
+	@FXML
+	private VBox keyboardVBox;
 
-    @FXML
-    private Label currentWordLabel;
+	@FXML
+	private Label currentWordLabel;
 
-    @FXML
-    private ImageView hangmanImageView;
+	@FXML
+	private ImageView hangmanImageView;
 
-    private Game game;
+	private Game game;
 
-    @FXML
-    void handleKeyboard(ActionEvent event) {
+	@FXML
+	void handleKeyboard(ActionEvent event) {
 
-        pressKeyboardButton((Button) event.getTarget());
-    }
+		pressKeyboardButton((Button) event.getTarget());
+	}
 
-    @FXML
-    void handleNextWordButton(ActionEvent event) {
-        
-        nextWord();
-    }
+	@FXML
+	void handleNextWordButton(ActionEvent event) {
 
-    @FXML
-    void handleHintButton(ActionEvent event) {
+		nextWord();
+	}
 
-        showMessage(AlertType.INFORMATION, "Hint", game.getHint());
-    }
-    
-    @FXML
-    void handleSettingsButton(ActionEvent event) {
-        
-        show();
-    }
+	@FXML
+	void handleHintButton(ActionEvent event) {
 
-    @FXML
-    void initialize() {
+		showMessage(AlertType.INFORMATION, "Hint", game.getHint());
+	}
 
-    	this.game = new Game();
-    	
-        nextWord();
-    }
+	@FXML
+	void handleSettingsButton(ActionEvent event) {
 
-    public void show() {
+		show();
+	}
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
+	@FXML
+	void initialize() {
 
-        Parent root = null;
+		playBackgroundMusic();
 
-        try {
-            root = (Parent) loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		this.game = new Game();
 
-        SettingsController c = loader.getController();
-        
-        c.setSettings(game.getSettings());
-        
-        c.load();
+		nextWord();
+	}
 
-        Dialog<ButtonType> dialog = new Dialog<>();
+	public void show() {
 
-        dialog.setTitle("Settings");
-        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-        dialog.getDialogPane().setContent(root);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
 
-        Optional<ButtonType> result = dialog.showAndWait();
+		Parent root = null;
 
-        if (result.isPresent()) {
-            
-        	c.save();
-        }
-    }
+		try {
+			root = (Parent) loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-    public void pressKeyboardButton(Button pressedButton) {
+		SettingsController c = loader.getController();
 
-        if (pressedButton.isDisabled()) {
-            return;
-        }
+		c.setSettings(game.getSettings());
 
-        pressedButton.setDisable(true);
+		c.load();
 
-        String letter = pressedButton.getText();
+		Dialog<ButtonType> dialog = new Dialog<>();
 
-        boolean isValidLetter = game.guess(letter);
+		dialog.setTitle("Settings");
+		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+		dialog.getDialogPane().setContent(root);
 
-        currentWordLabel.setText(game.toFormattedString());
+		Optional<ButtonType> result = dialog.showAndWait();
 
-        if (isValidLetter) {
+		if (result.isPresent()) {
 
-            pressedButton.getStyleClass().add("correct");
+			c.save();
+		}
+	}
 
-            if (game.isWin()) {
+	public void pressKeyboardButton(Button pressedButton) {
 
-                currentWordLabel.getStyleClass().add("correct");
+		if (pressedButton.isDisabled()) {
+			return;
+		}
 
-                disableKeyboard();
-            }
+		pressedButton.setDisable(true);
 
-        } else {
+		String letter = pressedButton.getText();
 
-            pressedButton.getStyleClass().add("wrong");
+		boolean isValidLetter = game.guess(letter);
 
-            if (game.isLost()) {
+		currentWordLabel.setText(game.toFormattedString());
 
-                currentWordLabel.getStyleClass().add("wrong");
+		if (isValidLetter) {
 
-                disableKeyboard();
-            }
-        }
+			playSuccess();
+			
+			pressedButton.getStyleClass().add("correct");
 
-        updateHangmanImageView();
-    }
+			if (game.isWin()) {
 
-    private void nextWord() {
+				playWin();
+				
+				currentWordLabel.getStyleClass().add("correct");
 
-    	this.game.nextWord();
+				disableKeyboard();
+			}
 
-        enableKeyboard();
-        restartKeyboardColors();
-        updateHangmanImageView();
-        restartCurrentWordLabel();
-    }
+		} else {
+			
+			playFailure();
 
-    private void restartCurrentWordLabel() {
+			pressedButton.getStyleClass().add("wrong");
 
-        currentWordLabel.setText(game.toFormattedString());
-        currentWordLabel.getStyleClass().remove("wrong");
-        currentWordLabel.getStyleClass().remove("correct");
-    }
+			if (game.isLost()) {
 
-    private void updateHangmanImageView() {
+				playLoose();
+				
+				currentWordLabel.getStyleClass().add("wrong");
 
-        String imagePath = "/images/hangman-" + game.getMaxAttemps() + ".png";
+				disableKeyboard();
+			}
+		}
 
-        hangmanImageView.setImage(new Image(getClass().getResourceAsStream(imagePath)));
-    }
+		updateHangmanImageView();
+	}
 
-    private void enableKeyboard() {
+	private void nextWord() {
 
-        setDisableForAllKeyboardButtons(false);
-    }
+		this.game.nextWord();
 
-    private void disableKeyboard() {
+		enableKeyboard();
+		restartKeyboardColors();
+		updateHangmanImageView();
+		restartCurrentWordLabel();
+	}
 
-        setDisableForAllKeyboardButtons(true);
-    }
+	private void restartCurrentWordLabel() {
 
-    private void setDisableForAllKeyboardButtons(boolean state) {
+		currentWordLabel.setText(game.toFormattedString());
+		currentWordLabel.getStyleClass().remove("wrong");
+		currentWordLabel.getStyleClass().remove("correct");
+	}
 
-        keyboardVBox.lookupAll(".button").forEach(e -> {
-            ((Button) e).setDisable(state);
-        });
-    }
+	private void updateHangmanImageView() {
 
-    private void restartKeyboardColors() {
+		String imagePath = "/images/hangman-" + game.getMaxAttemps() + ".png";
 
-        keyboardVBox.lookupAll(".button").forEach(e -> {
-            ((Button) e).getStyleClass().remove("wrong");
-            ((Button) e).getStyleClass().remove("correct");
-        });
-    }
+		hangmanImageView.setImage(new Image(getClass().getResourceAsStream(imagePath)));
+	}
 
-    private void showMessage(AlertType type, String title, String text) {
+	private void enableKeyboard() {
 
-        Alert alert = new Alert(type);
+		setDisableForAllKeyboardButtons(false);
+	}
 
-        alert.setTitle(title);
-        alert.setHeaderText(text);
+	private void disableKeyboard() {
 
-        alert.showAndWait();
-    }
+		setDisableForAllKeyboardButtons(true);
+	}
+
+	private void setDisableForAllKeyboardButtons(boolean state) {
+
+		keyboardVBox.lookupAll(".button").forEach(e -> {
+			((Button) e).setDisable(state);
+		});
+	}
+
+	private void restartKeyboardColors() {
+
+		keyboardVBox.lookupAll(".button").forEach(e -> {
+			((Button) e).getStyleClass().remove("wrong");
+			((Button) e).getStyleClass().remove("correct");
+		});
+	}
+
+	private void showMessage(AlertType type, String title, String text) {
+
+		Alert alert = new Alert(type);
+
+		alert.setTitle(title);
+		alert.setHeaderText(text);
+
+		alert.showAndWait();
+	}
+	
+	private void playWin() {
+		
+		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_WIN);
+
+		playMusic(media,  1.0, 1);
+	}
+
+	
+	private void playLoose() {
+		
+		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_LOOSE);
+
+		playMusic(media,  1.0, 1);
+	}
+
+	private void playSuccess() {
+		
+		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_SUCCESS);
+
+		playMusic(media,  1.0, 1);
+	}
+	
+	private void playFailure() {
+		
+		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_FAILURE);
+
+		playMusic(media,  1.0, 1);
+	}
+	
+	private void playBackgroundMusic() {
+
+		Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_BACKGROUND);
+
+		playMusic(media, 0.1, MediaPlayer.INDEFINITE);
+	}
+
+	private void playMusic(Media media, double volume, int cycleCount) {
+
+		// Instantiating MediaPlayer class
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		
+		// Sets the audio playback volume. Its effect will be clamped to 
+		// the range [0.0, 1.0].
+		mediaPlayer.setVolume(volume);
+
+		// by setting this property to true, the audio will be played
+		mediaPlayer.setAutoPlay(true);
+
+		// Play the music in loop
+		mediaPlayer.setCycleCount(cycleCount);
+	}
 }

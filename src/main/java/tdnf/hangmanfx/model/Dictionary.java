@@ -1,6 +1,9 @@
 package tdnf.hangmanfx.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import lombok.Getter;
 
@@ -11,22 +14,23 @@ public class Dictionary {
     
     public List<Category> categories;
 
-//    public Map<String, List<String>> categories;
+    public Word getTargetWord(Set<String> targetCategories) {
 
-//    public Dictionary() {
-//        this.categories = new HashMap<>();
-//    }
-//
-//    public Dictionary(String language) {
-//
-//        this.language = language;
-//        this.categories = new HashMap<>();
-//    }
-//
-//    public String getTargetWord() {
-//        return "opa".toUpperCase();
-//    }
-//    
+		List<Word> possibleWords = new ArrayList<>();
+
+		for (Category category : categories) {
+
+			if (targetCategories.contains(category.getName())) {
+
+				possibleWords.addAll(category.getWords());
+			}
+		}
+		
+		Collections.shuffle(possibleWords);
+	
+        return possibleWords.get(0);
+	}
+    
     public String toString() {
     	return getLanguage();
     }

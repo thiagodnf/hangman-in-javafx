@@ -1,8 +1,6 @@
 package tdnf.hangmanfx.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,19 +31,7 @@ public class Settings {
 	}
 
 	public Word getTargetWord() {
-
-		List<Word> possibleWords = new ArrayList<>();
-
-		for (Category category : selectedDictionary.getCategories()) {
-
-			if (categories.contains(category.getName())) {
-
-				possibleWords.addAll(category.getWords());
-			}
-		}
-		
-		Collections.shuffle(possibleWords);
-	
-        return possibleWords.get(0);
+		return selectedDictionary.getTargetWord(categories);
 	}
+
 }
