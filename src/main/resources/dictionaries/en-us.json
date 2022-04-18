@@ -124,10 +124,64 @@
     	"name": "fruits",
     	"words":[{
     		"name": "apple",
-    		"hint": ""
+    		"hint": "No hint"
     	},{
     		"name": "banana",
-    		"hint": ""
+    		"hint": "No hint"
+    	},{
+    		"name": "apricot",
+    		"hint": "No hint"
+    	},{
+    		"name": "avocado",
+    		"hint": "No hint"
+    	},{
+    		"name": "blueberry",
+    		"hint": "No hint"
+    	},{
+    		"name": "blackberry",
+    		"hint": "No hint"
+    	},{
+    		"name": "cherry",
+    		"hint": "No hint"
+    	},{
+    		"name": "coconut",
+    		"hint": "No hint"
+    	},{
+    		"name": "cucumber",
+    		"hint": "No hint"
+    	},{
+    		"name": "grape",
+    		"hint": "No hint"
+    	},{
+    		"name": "guava",
+    		"hint": "No hint"
+    	},{
+    		"name": "lime",
+    		"hint": "No hint"
+    	},{
+    		"name": "mango",
+    		"hint": "No hint"
+    	},{
+    		"name": "watermelon",
+    		"hint": "No hint"
+    	},{
+    		"name": "orange",
+    		"hint": "No hint"
+    	},{
+    		"name": "papaya",
+    		"hint": "No hint"
+    	},{
+    		"name": "peach",
+    		"hint": "No hint"
+    	},{
+    		"name": "pear",
+    		"hint": "No hint"
+    	},{
+    		"name": "pineapple",
+    		"hint": "No hint"
+    	},{
+    		"name": "melon",
+    		"hint": "No hint"
     	}]
     }]
 }
