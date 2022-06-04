@@ -27,12 +27,6 @@ Feel free to create <a href="../../issues">issues</a> here as you need
 
 Contributions to the this project are very welcome! We can't do this alone! Feel free to fork this project, work on it and then make a pull request.
 
-## Authors
-
-* **Thiago do N. Ferreira** - *Initial work*
-
-See also the list of [contributors](../../graphs/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
@@ -43,4 +37,6 @@ I open-source almost everything I can, and I try to reply to everyone needing he
 
 However, if you get some profit from this or just want to encourage me to continue creating stuff, reach out to me if you want to do it.
 
-Thanks! ❤️
+Thanks! 
+
+❤️
