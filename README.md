@@ -1,6 +1,6 @@
 # Hangman in JavaFX
 
-javafx-asynchronous-code
+The traditional hangman game in JavaFX
  
  [![GitHub contributors](https://img.shields.io/github/contributors/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx)
