@@ -2,6 +2,7 @@
 
 The traditional hangman game in JavaFX
  
+ [![GitHub Release](https://img.shields.io/github/release/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx/releases/latest)
  [![GitHub contributors](https://img.shields.io/github/contributors/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx/graphs/contributors)
 [![GitHub stars](https://img.shields.io/github/stars/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
