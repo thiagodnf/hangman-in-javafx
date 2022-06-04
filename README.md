@@ -8,8 +8,11 @@ javafx-asynchronous-code
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Screenshots
- 
-![Apr-09-2022 16-37-11](https://user-images.githubusercontent.com/98138701/162590923-1911f58f-a174-4ef3-b27e-089c4b2b01aa.gif)
+
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/98138701/171970500-c2f9e85d-6410-473f-8b95-26a7d3bfcc95.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/98138701/171970501-2be1e818-ed97-4de6-9a63-0822f08185b9.png" width="400" /> 
+</p>
 
 ## For Developers
 
