@@ -1,9 +1,9 @@
-# JavaFX Asynchronous Code
+# Hangman in JavaFX
 
-Add asynchronous code to your javafx apps and games
+javafx-asynchronous-code
  
- [![GitHub contributors](https://img.shields.io/github/contributors/cit-iti100-w22/javafx-asynchronous-code.svg)](https://github.com/cit-iti100-w22/javafx-asynchronous-code/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/cit-iti100-w22/javafx-asynchronous-code.svg)](https://github.com/cit-iti100-w22/javafx-asynchronous-code)
+ [![GitHub contributors](https://img.shields.io/github/contributors/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/thiagodonferreira/hangman-in-javafx.svg)](https://github.com/thiagodonferreira/hangman-in-javafx)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
