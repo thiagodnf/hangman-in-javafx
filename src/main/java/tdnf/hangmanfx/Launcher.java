@@ -5,8 +5,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tdnf.hangmanfx.util.ResourceUtils;
+import tdnf.hangmanfx.util.ResourceUtils.ResourceName;
 
 public class Launcher extends Application {
 
@@ -34,6 +37,8 @@ public class Launcher extends Application {
                 System.exit(0);
             }
         });
+        
+        primaryStage.getIcons().add((Image) ResourceUtils.getResource(ResourceName.APPLICATION_LOGO));
         
         primaryStage.show();
     }    
