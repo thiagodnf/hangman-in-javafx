@@ -18,7 +18,7 @@ jobs:
       with:
         repository: thiagodonferreira/hangman-in-javafx
         loader: java-maven
-        configurationFile: pom.xml
+        configurationFile: ./pom.xml
 
     - run: echo ${{steps.releaser.outputs.currentRelease}}
 
