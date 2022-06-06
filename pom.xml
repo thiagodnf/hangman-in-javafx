@@ -3,7 +3,7 @@
 
 	<groupId>tdnf</groupId>
 	<artifactId>hangman-in-javafx</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 
 	<name>Hangman in JavaFX</name>
 	<description>The traditional hangman game in JavaFX</description>
