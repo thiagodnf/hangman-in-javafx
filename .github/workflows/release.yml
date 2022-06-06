@@ -20,9 +20,10 @@ jobs:
         loader: java-maven
         configurationFile: ./pom.xml
 
-    - run: echo ${{steps.releaser.outputs.currentRelease}}
-
-    - run: echo ${{steps.releaser.outputs.nextRelease}}
+    - name: Build with Maven
+      run: mvn javafx:jlink --file pom.xml
+      
+    - run: mkdir staging && cp target/*.zip staging
 
     - name: Create Release on Github
       uses: softprops/action-gh-release@v1
@@ -30,6 +31,6 @@ jobs:
       with:
         name: ${{ steps.releaser.outputs.nextRelease }}
         tag_name: v${{steps.releaser.outputs.nextRelease}}
-        files: ""
+        files: staging/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
