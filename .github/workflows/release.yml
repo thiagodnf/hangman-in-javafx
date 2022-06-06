@@ -8,6 +8,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+
     - uses: actions/cache@v2
       id: yarn-cache
       with:
@@ -17,16 +18,17 @@ jobs:
           ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
     - uses: actions/checkout@v3
-    - id: get_version
-      name: Get version
-      run: |
-        VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
-        echo "::set-output name=version::$VERSION"
-        echo $VERSION
-    - id: latest_release
+
+    - id: get_current_version
+      name: Getting Current Version
+      run: CURRENT_VERSION = $( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
+
+    - id: get_latest_release
       uses: pozetroninc/github-action-get-latest-release@master
       with:
         repository: thiagodonferreira/hangman-in-javafx
-    - run: echo ${{ steps.latest_release.outputs.release }}
-    - run: echo "Increase"
-      if: steps.latest_release.outputs.release == 'v0.0.1'
+
+    - run: LATEST_VERSION = ${{steps.latest_release.outputs.release}}
+
+    - run: echo $CURRENT_VERSION and $LATEST_VERSION
+    #   if: steps.latest_release.outputs.release == 'v0.0.1'
