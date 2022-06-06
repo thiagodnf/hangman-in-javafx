@@ -66,6 +66,17 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.20</version>
+						</path>
+					</annotationProcessorPaths>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.openjfx</groupId>
@@ -78,7 +89,7 @@
 						<configuration>
 							<mainClass>${main.class}</mainClass>
 							<launcher>${project.artifactId}</launcher>
-							<jlinkZipName>app</jlinkZipName>
+							<jlinkZipName>${project.artifactId}-${project.version}</jlinkZipName>
 							<jlinkImageName>app</jlinkImageName>
 							<noManPages>true</noManPages>
 							<stripDebug>true</stripDebug>
