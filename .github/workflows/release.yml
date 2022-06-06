@@ -22,6 +22,7 @@ jobs:
       run: |
         VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
         echo "::set-output name=version::$VERSION"
+        echo $VERSION
     - id: latest_release
       uses: pozetroninc/github-action-get-latest-release@master
       with:
