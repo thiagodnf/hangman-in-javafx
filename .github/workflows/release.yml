@@ -22,3 +22,5 @@ jobs:
       with:
         repository: thiagodonferreira/hangman-in-javafx
     - run: echo ${{ steps.latest_release.outputs.release }}
+    - run: echo "Increase"
+      if: steps.latest_release.outputs.release == 'v0.0.1'
