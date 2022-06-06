@@ -9,27 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/cache@v2
-      id: yarn-cache
-      with:
-        path: |
-          **/node_modules
-          **/.eslintcache
-          ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    - uses: actions/checkout@v3
+    - name: Checking out
+      uses: actions/checkout@v3
 
-    - id: get_current_version
-      name: Getting Current Version
-      run: |
-        export CURRENT_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
-
-    - id: get_latest_release
-      uses: pozetroninc/github-action-get-latest-release@master
+    - id: releaser
+      name: Configuration File Releaser
+      uses: thiagodonferreira/configuration-file-releaser@0.0.3
       with:
         repository: thiagodonferreira/hangman-in-javafx
+        loader: java-maven
+        configurationFile: pom.xml
 
-    - run: export LATEST_VERSION=${{steps.latest_release.outputs.release}}
+    - run: echo ${{steps.releaser.outputs.currentRelease}}
 
-    - run: echo $CURRENT_VERSION and $LATEST_VERSION
-    #   if: steps.latest_release.outputs.release == 'v0.0.1'
+    - run: echo ${{steps.releaser.outputs.nextRelease}}
+
+    - name: Create Release on Github
+      uses: softprops/action-gh-release@v1
+      if: ${{steps.releaser.outputs.currentRelease != steps.releaser.outputs.nextRelease}}
+      with:
+        name: ${{ steps.releaser.outputs.nextRelease }}
+        tag_name: v${{steps.releaser.outputs.nextRelease}}
+        files: ""
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
