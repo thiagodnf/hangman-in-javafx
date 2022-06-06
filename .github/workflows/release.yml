@@ -21,14 +21,14 @@ jobs:
 
     - id: get_current_version
       name: Getting Current Version
-      run: CURRENT_VERSION = $( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
+      run: CURRENT_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
 
     - id: get_latest_release
       uses: pozetroninc/github-action-get-latest-release@master
       with:
         repository: thiagodonferreira/hangman-in-javafx
 
-    - run: LATEST_VERSION = ${{steps.latest_release.outputs.release}}
+    - run: LATEST_VERSION=${{steps.latest_release.outputs.release}}
 
-    - run: echo ${{steps.get_current_version.CURRENT_VERSION}} and ${{LATEST_VERSION}}
+    - run: echo ${{steps.get_current_version.CURRENT_VERSION}}
     #   if: steps.latest_release.outputs.release == 'v0.0.1'
