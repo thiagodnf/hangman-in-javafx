@@ -2,7 +2,7 @@ module tdnf.hangmanfx {
 	
     requires javafx.controls;
     requires javafx.fxml;
-    requires transitive javafx.media;
+    requires javafx.media;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
