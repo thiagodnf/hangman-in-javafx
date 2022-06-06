@@ -21,7 +21,9 @@ jobs:
 
     - id: get_current_version
       name: Getting Current Version
-      run: CURRENT_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
+      run: |
+        CURRENT_VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
+        echo $CURRENT_VERSION
 
     - id: get_latest_release
       uses: pozetroninc/github-action-get-latest-release@master
