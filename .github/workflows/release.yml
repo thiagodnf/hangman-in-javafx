@@ -20,6 +20,11 @@ jobs:
         loader: java-maven
         configurationFile: ./pom.xml
 
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 15
+        
     - name: Build with Maven
       run: mvn javafx:jlink --file pom.xml
       
