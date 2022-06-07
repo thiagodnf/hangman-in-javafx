@@ -14,7 +14,7 @@ jobs:
 
     - id: releaser
       name: Configuration File Releaser
-      uses: thiagodonferreira/configuration-file-releaser@main
+      uses: thiagodonferreira/new-version-decider@0.0.5
       with:
         repository: thiagodonferreira/hangman-in-javafx
         loader: java-maven
