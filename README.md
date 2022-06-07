@@ -17,14 +17,6 @@ The traditional hangman game in JavaFX
   <img src="https://user-images.githubusercontent.com/98138701/171970501-2be1e818-ed97-4de6-9a63-0822f08185b9.png" width="400" /> 
 </p>
 
-## For Developers
-
-For Eclipse, create a new Maven Build and set as goals the following: 
-
-```sh
-clean javafx:run
-```
-
 ## Questions or Suggestions
 
 Feel free to create <a href="../../issues">issues</a> here as you need
