@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.model;
+package thiagodnf.hangmanfx.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import lombok.Getter;
 public class Dictionary {
 
     public String language;
-    
+
     public List<Category> categories;
 
     public Word getTargetWord(Set<String> targetCategories) {
@@ -25,12 +25,12 @@ public class Dictionary {
 				possibleWords.addAll(category.getWords());
 			}
 		}
-		
+
 		Collections.shuffle(possibleWords);
-	
+
         return possibleWords.get(0);
 	}
-    
+
     public String toString() {
     	return getLanguage();
     }

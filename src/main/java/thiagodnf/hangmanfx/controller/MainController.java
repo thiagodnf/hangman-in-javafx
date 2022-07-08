@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.controller;
+package thiagodnf.hangmanfx.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,8 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import tdnf.hangmanfx.model.Game;
-import tdnf.hangmanfx.util.MusicUtils;
+import thiagodnf.hangmanfx.model.Game;
+import thiagodnf.hangmanfx.util.MusicUtils;
 
 public class MainController {
 
@@ -34,10 +34,10 @@ public class MainController {
 
 	@FXML
 	private Label currentWordLabel;
-	
+
 	@FXML
 	private Label winCounterLabel;
-	
+
 	@FXML
     private Label loseCounterLabel;
 
@@ -97,22 +97,22 @@ public class MainController {
 		if (isValidLetter) {
 
 		    MusicUtils.playSuccess();
-			
+
 			pressedButton.getStyleClass().add("correct");
 
 			if (game.isWin()) {
 
 			    MusicUtils.playWin();
-			    
+
 			    game.addWin();
-				
+
 				currentWordLabel.getStyleClass().add("correct");
 
 				disableKeyboard();
 			}
 
 		} else {
-			
+
 			MusicUtils.playFailure();
 
 			pressedButton.getStyleClass().add("wrong");
@@ -120,9 +120,9 @@ public class MainController {
 			if (game.isLost()) {
 
 			    MusicUtils.playGameOver();
-			    
+
 			    game.addLose();
-				
+
 				currentWordLabel.getStyleClass().add("wrong");
 
 				disableKeyboard();
@@ -142,9 +142,9 @@ public class MainController {
 		updateHangmanImageView();
 		restartCurrentWordLabel();
 	}
-	
+
 	private void updateTopBar() {
-	    
+
 	    this.winCounterLabel.setText(String.valueOf(game.getWinCounter()));
 	    this.loseCounterLabel.setText(String.valueOf(game.getLoseCounter()));
 	}
@@ -197,7 +197,7 @@ public class MainController {
 
 		alert.showAndWait();
 	}
-	
+
 	private void showSettingsDialog() {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));

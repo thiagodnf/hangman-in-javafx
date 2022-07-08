@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.controller;
+package thiagodnf.hangmanfx.controller;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import lombok.Getter;
-import tdnf.hangmanfx.model.Dictionary;
-import tdnf.hangmanfx.model.Settings;
+import thiagodnf.hangmanfx.model.Dictionary;
+import thiagodnf.hangmanfx.model.Settings;
 
 @Getter
 public class SettingsController {
@@ -29,22 +29,22 @@ public class SettingsController {
 
     @FXML
     private CheckBox fruitsCheckBox;
-    
+
     private List<CheckBox> categoriesCheckBoxes;
-    
+
     private Settings settings;
 
     @FXML
     private void initialize() {
-    	
+
     	this.categoriesCheckBoxes = Arrays.asList(
-    		carMakersCheckBox, 
+    		carMakersCheckBox,
     		fruitsCheckBox
 		);
     }
 
     public void load(Settings settings) {
-        
+
         this.settings = settings;
 
         for (Dictionary dictionary : settings.getDictionaries()) {
@@ -56,17 +56,17 @@ public class SettingsController {
 		for (CheckBox checkBox : categoriesCheckBoxes) {
 
 			String id = checkBox.getId();
-			
+
 			if (settings.getCategories().contains(id)) {
 				checkBox.setSelected(true);
 			}
 		}
     }
-    
+
     public void save(){
-    	
+
     	this.settings.setSelectedDictionary(dictionaryComboBox.getSelectionModel().getSelectedItem());
-    	
+
 		for (CheckBox checkBox : categoriesCheckBoxes) {
 
 			String id = checkBox.getId();

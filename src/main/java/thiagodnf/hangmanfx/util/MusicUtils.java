@@ -1,42 +1,41 @@
-package tdnf.hangmanfx.util;
+package thiagodnf.hangmanfx.util;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import tdnf.hangmanfx.util.ResourceUtils.ResourceName;
 
 public class MusicUtils {
 
     public static void playWin() {
 
-        Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_WIN);
+        Media media = (Media) ResourceUtils.getResource(ResourceUtils.ResourceName.MUSIC_WIN);
 
         playMusic(media, 1);
     }
 
     public static void playGameOver() {
 
-        Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_GAME_OVER);
+        Media media = (Media) ResourceUtils.getResource(ResourceUtils.ResourceName.MUSIC_GAME_OVER);
 
         playMusic(media, 1);
     }
 
     public static void playSuccess() {
 
-        Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_SUCCESS);
+        Media media = (Media) ResourceUtils.getResource(ResourceUtils.ResourceName.MUSIC_SUCCESS);
 
         playMusic(media, 1);
     }
 
     public static void playFailure() {
 
-        Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_FAILURE);
+        Media media = (Media) ResourceUtils.getResource(ResourceUtils.ResourceName.MUSIC_FAILURE);
 
         playMusic(media, 1);
     }
 
     public static void playBackgroundMusic() {
 
-        Media media = (Media) ResourceUtils.getResource(ResourceName.MUSIC_BACKGROUND);
+        Media media = (Media) ResourceUtils.getResource(ResourceUtils.ResourceName.MUSIC_BACKGROUND);
 
         playMusic(media, MediaPlayer.INDEFINITE);
     }

@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.util;
+package thiagodnf.hangmanfx.util;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -44,14 +44,14 @@ public class ResourceUtils {
 
 		return new Media(getResourceToURI(name).toString());
 	}
-	
+
 	public static Image loadImage(String name) {
 
 		return new Image(getResourceToURI(name).toString());
 	}
-	
+
 	public static Object getResource(ResourceName resourceName) {
-		
+
 	    return resources.get(resourceName);
 	}
 }

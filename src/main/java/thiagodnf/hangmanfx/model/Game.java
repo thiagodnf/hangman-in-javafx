@@ -1,23 +1,23 @@
-package tdnf.hangmanfx.model;
+package thiagodnf.hangmanfx.model;
 
 import lombok.Getter;
-import tdnf.hangmanfx.util.ArrayUtils;
+import thiagodnf.hangmanfx.util.ArrayUtils;
 
 @Getter
 public class Game {
-    
+
     private Settings settings;
 
     private String[] targetWord;
 
     private String[] currentWord;
-    
+
     private String hint;
 
     private int maxAttemps;
-    
+
     private int winCounter;
-    
+
     private int loseCounter;
 
     public Game() {
@@ -25,11 +25,11 @@ public class Game {
         this.winCounter = 0;
         this.loseCounter = 0;
     }
-    
+
     public void nextWord() {
-    	
+
     	Word word = settings.getTargetWord();
-        
+
         this.targetWord = word.getName().toUpperCase().split("");
         this.currentWord = ArrayUtils.replace(this.targetWord, "_");
         this.hint = word.getHint();
@@ -76,14 +76,14 @@ public class Game {
     public int getMaxAttemps() {
         return this.maxAttemps;
     }
-    
+
     public void addWin() {
-        
+
         this.winCounter++;
     }
-    
+
     public void addLose() {
-        
+
         this.loseCounter++;
     }
 }

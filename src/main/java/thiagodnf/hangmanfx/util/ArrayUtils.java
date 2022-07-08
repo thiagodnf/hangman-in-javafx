@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.util;
+package thiagodnf.hangmanfx.util;
 
 import lombok.experimental.UtilityClass;
 

@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.model;
+package thiagodnf.hangmanfx.model;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
-import tdnf.hangmanfx.util.FileUtils;
+import thiagodnf.hangmanfx.util.FileUtils;
 
 @Getter
 @Setter

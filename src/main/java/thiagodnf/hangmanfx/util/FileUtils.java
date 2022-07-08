@@ -1,11 +1,11 @@
-package tdnf.hangmanfx.util;
+package thiagodnf.hangmanfx.util;
 
 import java.net.URL;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.experimental.UtilityClass;
-import tdnf.hangmanfx.model.Dictionary;
+import thiagodnf.hangmanfx.model.Dictionary;
 
 @UtilityClass
 public class FileUtils {
@@ -20,11 +20,11 @@ public class FileUtils {
             throw new RuntimeException(ex);
         }
     }
-    
+
 //    public static FXMLLoader getFXMLLoader(String file) {
-//        
+//
 //        URL url = FileUtils.class.getResource("/fxml/" + file);
-//        
+//
 //        FXMLLoader loader = new FXMLLoader(url);
 //
 //        Parent root = null;

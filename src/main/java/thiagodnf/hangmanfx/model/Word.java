@@ -1,4 +1,4 @@
-package tdnf.hangmanfx.model;
+package thiagodnf.hangmanfx.model;
 
 import lombok.Data;
 

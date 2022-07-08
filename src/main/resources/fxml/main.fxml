@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tdnf.hangmanfx.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thiagodnf.hangmanfx.controller.MainController">
    <children>
       <HBox alignment="CENTER" prefHeight="30.0" prefWidth="400.0" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -54,90 +54,90 @@
                   <HBox alignment="CENTER" spacing="7.0">
                      <children>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="Q">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="W">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="E">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="R">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="T">
-                         
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="Y">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="U">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="I">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="O">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="P">
-                          
+
                         </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="7.0">
                      <children>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="A">
-                          
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="S">
-                          
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="D">
-                          
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="F">
-                          
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="G">
-                          
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="H">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="J">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="K">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="L">
-                           
+
                         </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" spacing="7.0">
                      <children>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="Z">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="X">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="C">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="V">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="B">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="N">
-                           
+
                         </Button>
                         <Button focusTraversable="false" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleKeyboard" text="M">
-                           
+
                         </Button>
                      </children>
                   </HBox>
