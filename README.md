@@ -1,5 +1,3 @@
-<img src="https://user-images.githubusercontent.com/98138701/172077063-5dcaf01f-c8ce-4c33-becc-606225bf7ef2.png" width="80px"/>
-
 # Hangman in JavaFX
 
 The traditional hangman game in JavaFX
