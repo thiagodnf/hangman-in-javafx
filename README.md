@@ -11,7 +11,7 @@ The traditional hangman game in JavaFX
 ## Screenshots
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/98138701/171970500-c2f9e85d-6410-473f-8b95-26a7d3bfcc95.png" width="400" />
+  <img class="screenshot" src="https://user-images.githubusercontent.com/98138701/171970500-c2f9e85d-6410-473f-8b95-26a7d3bfcc95.png" width="400" />
   <img src="https://user-images.githubusercontent.com/98138701/171970501-2be1e818-ed97-4de6-9a63-0822f08185b9.png" width="400" />
 </p>
 
