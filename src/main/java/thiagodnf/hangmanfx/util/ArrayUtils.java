@@ -1,8 +1,5 @@
 package thiagodnf.hangmanfx.util;
 
-import lombok.experimental.UtilityClass;
-
-@UtilityClass
 public class ArrayUtils {
 
     public static String[] replace(String[] array, String letter) {

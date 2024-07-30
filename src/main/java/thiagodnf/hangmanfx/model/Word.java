@@ -1,11 +1,26 @@
 package thiagodnf.hangmanfx.model;
 
-import lombok.Data;
-
-@Data
 public class Word {
 
-	private String name;
+    private String name;
 
-	private String hint;
+    private String hint;
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+   
 }

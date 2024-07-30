@@ -1,9 +1,7 @@
 package thiagodnf.hangmanfx.model;
 
-import lombok.Getter;
 import thiagodnf.hangmanfx.util.ArrayUtils;
 
-@Getter
 public class Game {
 
     private Settings settings;
@@ -28,7 +26,7 @@ public class Game {
 
     public void nextWord() {
 
-    	Word word = settings.getTargetWord();
+        Word word = settings.getTargetWord();
 
         this.targetWord = word.getName().toUpperCase().split("");
         this.currentWord = ArrayUtils.replace(this.targetWord, "_");
@@ -85,5 +83,25 @@ public class Game {
     public void addLose() {
 
         this.loseCounter++;
+    }
+    
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    public String getHint() {
+        return this.hint;
+    }
+
+    public int getWinCounter() {
+        return this.winCounter;
+    }
+
+    public int getLoseCounter() {
+        return this.loseCounter;
+    }
+
+    public Settings getSettings() {
+        return this.settings;
     }
 }

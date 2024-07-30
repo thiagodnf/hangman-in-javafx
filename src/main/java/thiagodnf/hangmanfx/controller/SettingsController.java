@@ -8,11 +8,9 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import lombok.Getter;
 import thiagodnf.hangmanfx.model.Dictionary;
 import thiagodnf.hangmanfx.model.Settings;
 
-@Getter
 public class SettingsController {
 
     @FXML

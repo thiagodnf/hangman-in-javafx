@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import lombok.Getter;
-
-@Getter
 public class Dictionary {
 
     public String language;
@@ -32,6 +29,6 @@ public class Dictionary {
 	}
 
     public String toString() {
-    	return getLanguage();
+    	return language;
     }
 }

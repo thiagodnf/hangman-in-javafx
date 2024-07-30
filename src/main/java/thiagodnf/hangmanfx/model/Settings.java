@@ -5,33 +5,43 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lombok.Getter;
-import lombok.Setter;
 import thiagodnf.hangmanfx.util.FileUtils;
 
-@Getter
-@Setter
 public class Settings {
 
-	private List<Dictionary> dictionaries;
+    private List<Dictionary> dictionaries;
 
-	private Dictionary selectedDictionary;
+    private Dictionary selectedDictionary;
 
-	private Set<String> categories;
+    private Set<String> categories;
 
-	public Settings() {
+    public Settings() {
 
-		this.dictionaries = Arrays.asList(
-			FileUtils.loadDictionary("en-us.json")
-		);
+        this.dictionaries = Arrays.asList(FileUtils.loadDictionary("en-us.json"));
 
-		this.categories = new HashSet<>(Set.of("fruits", "carMakers"));
+        this.categories = new HashSet<>(Set.of("fruits", "carMakers"));
 
-		this.selectedDictionary = this.dictionaries.get(0);
-	}
+        this.selectedDictionary = this.dictionaries.get(0);
+    }
 
-	public Word getTargetWord() {
-		return selectedDictionary.getTargetWord(categories);
-	}
+    public Word getTargetWord() {
+        return selectedDictionary.getTargetWord(categories);
+    }
+
+    public List<Dictionary> getDictionaries() {
+        return this.dictionaries;
+    }
+
+    public Dictionary getSelectedDictionary() {
+        return selectedDictionary;
+    }
+
+    public Set<String> getCategories() {
+        return this.categories;
+    }
+
+    public void setSelectedDictionary(Dictionary selectedDictionary) {
+        this.selectedDictionary = selectedDictionary;
+    }
 
 }
