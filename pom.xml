@@ -10,11 +10,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>15</java.version>
-		<javafx.version>18</javafx.version>
+		<java.version>22</java.version>
+		<javafx.version>22.0.2</javafx.version>
+		<jackson.version>2.17.2</jackson.version>
 		<javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
-		<maven.compiler.target>15</maven.compiler.target>
-		<maven.compiler.source>15</maven.compiler.source>
+		<maven.compiler.target>2</maven.compiler.target>
+		<maven.compiler.source>22</maven.compiler.source>
 		<main.class>thiagodnf.hangmanfx.Launcher</main.class>
 	</properties>
 
@@ -39,24 +40,17 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.13.2</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.13.2</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.13.2.2</version>
-		</dependency>
-		<!-- Lombok-->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.20</version>
-			<scope>provided</scope>
+			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -67,13 +61,6 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
 				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>1.18.20</version>
-						</path>
-					</annotationProcessorPaths>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
