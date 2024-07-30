@@ -10,178 +10,178 @@
     		"hint": "American manufacter"
     	},{
     		"name": "alfa romeo",
-    		"hint": "No hint"
+    		"hint": "Italian luxury car bran"
     	},{
     		"name": "aston martin",
-    		"hint": "No hint"
+    		"hint": "British luxury sports cars"
     	},{
     		"name": "audi",
-    		"hint": "No hint"
+    		"hint": "German luxury cars"
     	},{
     		"name": "bentley",
-    		"hint": "No hint"
+    		"hint": "British luxury cars"
     	},{
     		"name": "bmw",
-    		"hint": "No hint"
+    		"hint": "German premium cars"
     	},{
     		"name": "bugatti",
-    		"hint": "No hint"
+    		"hint": "French hypercars"
     	},{
     		"name": "cadillac",
-    		"hint": "No hint"
+    		"hint": "American luxury vehicles"
     	},{
     		"name": "chevrolet",
-    		"hint": "No hint"
+    		"hint": "American mass-market cars"
     	},{
     		"name": "chrysler",
-    		"hint": "No hint"
+    		"hint": "American automotive brand"
     	},{
     		"name": "citroen",
-    		"hint": "No hint"
+    		"hint": "French cars"
     	},{
     		"name": "dodge",
-    		"hint": "No hint"
+    		"hint": "American performance cars"
     	},{
     		"name": "fiat",
-    		"hint": "No hint"
+    		"hint": "Italian cars"
     	},{
     		"name": "ferrari",
-    		"hint": "No hint"
+    		"hint": "Italian sports cars"
     	},{
     		"name": "gmc",
-    		"hint": "No hint"
+    		"hint": "American trucks and SUVs"
     	},{
     		"name": "honda",
-    		"hint": "No hint"
+    		"hint": "Japanese cars and motorcycles"
     	},{
     		"name": "hyundai",
-    		"hint": "No hint"
+    		"hint": "South Korean automotive brand"
     	},{
     		"name": "infitini",
-    		"hint": "No hint"
+    		"hint": "Japanese luxury cars"
     	},{
     		"name": "jaguar",
-    		"hint": "No hint"
+    		"hint": "British luxury cars"
     	},{
     		"name": "kia",
-    		"hint": "No hint"
+    		"hint": "South Korean cars"
     	},{
     		"name": "land rover",
-    		"hint": "No hint"
+    		"hint": "British SUVs"
     	},{
     		"name": "lexus",
-    		"hint": "No hint"
+    		"hint": "Japanese luxury vehicles"
     	},{
     		"name": "lincoln",
-    		"hint": "No hint"
+    		"hint": "American luxury cars"
     	},{
     		"name": "mitsubishi",
-    		"hint": "No hint"
+    		"hint": "Japanese cars and electronics"
     	},{
     		"name": "mercedez benz",
-    		"hint": "No hint"
+    		"hint": "German luxury cars"
     	},{
     		"name": "nissan",
-    		"hint": "No hint"
+    		"hint": "Japanese cars"
     	},{
     		"name": "porche",
-    		"hint": "No hint"
+    		"hint": "German sports cars"
     	},{
     		"name": "ram",
-    		"hint": "No hint"
+    		"hint": "American trucks"
     	},{
     		"name": "pontiac",
-    		"hint": "No hint"
+    		"hint": "Defunct American car brand"
     	},{
     		"name": "renault",
-    		"hint": "No hint"
+    		"hint": "French automotive brand"
     	},{
     		"name": "subaru",
-    		"hint": "No hint"
+    		"hint": "Japanese all-wheel-drive cars"
     	},{
     		"name": "tesla",
-    		"hint": "No hint"
+    		"hint": "American electric vehicles"
     	},{
     		"name": "volkswagen",
-    		"hint": "No hint"
+    		"hint": "German mass-market cars"
     	},{
     		"name": "volvo",
-    		"hint": "No hint"
+    		"hint": "Swedish cars"
     	},{
     		"name": "rolls royce",
-    		"hint": "No hint"
+    		"hint": "British ultra-luxury cars"
     	},{
     		"name": "lamborghini",
-    		"hint": "No hint"
+    		"hint": "Italian supercars"
     	},{
     		"name": "jeep",
-    		"hint": "No hint"
+    		"hint": "American SUVs"
     	},{
     		"name": "chery",
-    		"hint": "No hint"
+    		"hint": "Chinese cars"
     	}]
     },{
-    	"name": "fruits",
-    	"words":[{
-    		"name": "apple",
-    		"hint": "No hint"
-    	},{
-    		"name": "banana",
-    		"hint": "No hint"
-    	},{
-    		"name": "apricot",
-    		"hint": "No hint"
-    	},{
-    		"name": "avocado",
-    		"hint": "No hint"
-    	},{
-    		"name": "blueberry",
-    		"hint": "No hint"
-    	},{
-    		"name": "blackberry",
-    		"hint": "No hint"
-    	},{
-    		"name": "cherry",
-    		"hint": "No hint"
-    	},{
-    		"name": "coconut",
-    		"hint": "No hint"
-    	},{
-    		"name": "cucumber",
-    		"hint": "No hint"
-    	},{
-    		"name": "grape",
-    		"hint": "No hint"
-    	},{
-    		"name": "guava",
-    		"hint": "No hint"
-    	},{
-    		"name": "lime",
-    		"hint": "No hint"
-    	},{
-    		"name": "mango",
-    		"hint": "No hint"
-    	},{
-    		"name": "watermelon",
-    		"hint": "No hint"
-    	},{
-    		"name": "orange",
-    		"hint": "No hint"
-    	},{
-    		"name": "papaya",
-    		"hint": "No hint"
-    	},{
-    		"name": "peach",
-    		"hint": "No hint"
-    	},{
-    		"name": "pear",
-    		"hint": "No hint"
-    	},{
-    		"name": "pineapple",
-    		"hint": "No hint"
-    	},{
-    		"name": "melon",
-    		"hint": "No hint"
-    	}]
+        "name": "fruits",
+        "words": [{
+            "name": "apple",
+            "hint": "A common red or green fruit"
+        },{
+            "name": "banana",
+            "hint": "A long, yellow tropical fruit"
+        },{
+            "name": "apricot",
+            "hint": "A small, orange stone fruit"
+        },{
+            "name": "avocado",
+            "hint": "A creamy green fruit often used in guacamole"
+        },{
+            "name": "blueberry",
+            "hint": "A small, blue berry"
+        },{
+            "name": "blackberry",
+            "hint": "A dark purple berry"
+        },{
+            "name": "cherry",
+            "hint": "A small, red fruit often found on top of desserts"
+        },{
+            "name": "coconut",
+            "hint": "A large, brown fruit with a hard shell and white flesh inside"
+        },{
+            "name": "cucumber",
+            "hint": "A long, green fruit often used in salads"
+        },{
+            "name": "grape",
+            "hint": "A small, round fruit that can be red, green, or purple"
+        },{
+            "name": "guava",
+            "hint": "A tropical fruit with green skin and pink or white flesh"
+        },{
+            "name": "lime",
+            "hint": "A small, green citrus fruit"
+        },{
+            "name": "mango",
+            "hint": "A tropical fruit with orange flesh and a large pit"
+        },{
+            "name": "watermelon",
+            "hint": "A large, green fruit with sweet, red flesh and black seeds"
+        },{
+            "name": "orange",
+            "hint": "A round, orange citrus fruit"
+        },{
+            "name": "papaya",
+            "hint": "A tropical fruit with orange flesh and black seeds"
+        },{
+            "name": "peach",
+            "hint": "A soft, fuzzy fruit with yellow or white flesh"
+        },{
+            "name": "pear",
+            "hint": "A green or yellow fruit with a bell shape"
+        },{
+            "name": "pineapple",
+            "hint": "A tropical fruit with spiky skin and sweet, yellow flesh"
+        },{
+            "name": "melon",
+            "hint": "A large, juicy fruit that can be green, orange, or yellow inside"
+        }]
     }]
 }
