@@ -3,7 +3,7 @@
 
 	<groupId>thiagodnf</groupId>
 	<artifactId>hangman-in-javafx</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 
 	<name>Hangman in JavaFX</name>
 	<description>The traditional hangman game in JavaFX</description>
@@ -59,7 +59,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
+				<version>3.13.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
